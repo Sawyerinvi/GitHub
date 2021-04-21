@@ -6,7 +6,8 @@ public class BuildManager : MonoBehaviour
 {
 
     public static BuildManager inctance;
-    public GameObject standardTurretPrefab;
+    public GameObject standardTurretPrefab, rocketTurretPrefab;
+    
 
     private GameObject turretTobuild;
 
@@ -20,13 +21,14 @@ public class BuildManager : MonoBehaviour
         inctance = this;
     }
 
-    private void Start()
-    {
-        turretTobuild = standardTurretPrefab;
-    }
 
     public GameObject GetTurretToBuild()
     {
         return turretTobuild;
+    }
+
+    public void SetTurretToBuild(GameObject turret)
+    {
+        turretTobuild = turret;
     }
 }

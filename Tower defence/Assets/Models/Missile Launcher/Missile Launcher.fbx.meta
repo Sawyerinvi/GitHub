@@ -3,7 +3,27 @@ guid: 5f8594cf4939d9e4c91e9eb3736dc2bc
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bolts
+    second: {fileID: 2100000, guid: a56a885b3b0d9f842b5b0f85f571012b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main Turret
+    second: {fileID: 2100000, guid: 83903e3419f1c4042acd2fd9363d3709, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stand
+    second: {fileID: 2100000, guid: 077ba6dea08e5eb49808c3cee32b4101, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Turret Accent
+    second: {fileID: 2100000, guid: a56a885b3b0d9f842b5b0f85f571012b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
