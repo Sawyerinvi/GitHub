@@ -9,26 +9,39 @@ public class MainCharacter : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
     private RaycastHit2D raycast;
+    private SpriteRenderer sprite;
+    
 
-    void Start()
+    private void Awake()
     {
-        
+        sprite = GetComponent<SpriteRenderer>();
     }
 
-    
     void Update()
     {
-        raycast = Physics2D.Raycast(transform.position - new Vector3(0, -0.6f, 0), -Vector2.up, 0.1f);
-        if (Input.GetKey(KeyCode.LeftArrow))
+        
+        
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
+            rb.AddForce(Vector2.up * jumpForce);
+        }
+        IsGrounded();
+    }
+
+    private void FixedUpdate()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+
+        if(horizontal < 0)
         {
             rb.AddForce(Vector2.left * walkForce);
 
-            if(rb.velocity.x <= -maxVelocity)
+            if (rb.velocity.x <= -maxVelocity)
             {
                 rb.AddForce(-Vector2.left * walkForce);
             }
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        else if(horizontal > 0)
         {
             rb.AddForce(Vector2.right * walkForce);
 
@@ -37,11 +50,9 @@ public class MainCharacter : MonoBehaviour
                 rb.AddForce(-Vector2.right * walkForce);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(Vector2.up * jumpForce);
-        }
-        IsGrounded();
+        raycast = Physics2D.Raycast(transform.position - new Vector3(0, sprite.bounds.extents.y + 0.01f, 0), Vector3.down, 0.05f);
+        Debug.DrawRay(transform.position - new Vector3(0, sprite.bounds.extents.y + 0.01f, 0), Vector3.down * 0.05f, Color.red);
+
     }
 
     private bool IsGrounded()
@@ -49,14 +60,23 @@ public class MainCharacter : MonoBehaviour
 
         if(raycast.collider != null)
         {
-            Debug.Log("Hit the ground");
+            
             return true;
 
         }
         else
         {
-            Debug.Log("In the air");
+            
             return false;
+        }
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider != null)
+        {
+            Debug.Log("Hit Something");
         }
     }
 }
