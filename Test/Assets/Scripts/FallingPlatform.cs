@@ -6,7 +6,7 @@ public class FallingPlatform : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField]
-    GameObject player, bottom;
+    GameObject bottom;
     
     private void Awake()
     {
@@ -15,10 +15,10 @@ public class FallingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
-        if(collision.gameObject.name == player.name)
+        
+        if(collision.gameObject.tag == "Player")
         {
-            Debug.Log("SAme");
+            
             StartCoroutine(DropThePlatform());           
         }      
        
@@ -34,8 +34,6 @@ public class FallingPlatform : MonoBehaviour
     }
     private IEnumerator DropThePlatform()
     {
-        Debug.Log("Coroutine happens");
-        
         yield return new WaitForSeconds(1f);
         rb.gravityScale = 1;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;

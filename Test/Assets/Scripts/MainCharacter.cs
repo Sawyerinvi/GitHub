@@ -76,7 +76,7 @@ public class MainCharacter : MonoBehaviour
     {
         if(collider != null)
         {
-            Debug.Log("Hit Something");
+            //Debug.Log("Hit Something");
         }
     }
 }

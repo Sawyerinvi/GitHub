@@ -161,7 +161,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257991732}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -1407,11 +1407,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 661043973414036213, guid: ddb0afae8fd668e48be9e7ee25c59d2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.707801
+      value: 13.627
       objectReference: {fileID: 0}
     - target: {fileID: 661043973414036213, guid: ddb0afae8fd668e48be9e7ee25c59d2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25
+      value: -0.252
       objectReference: {fileID: 0}
     - target: {fileID: 661043973414036213, guid: ddb0afae8fd668e48be9e7ee25c59d2a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1456,6 +1456,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1421217881}
+  - component: {fileID: 1421217882}
+  - component: {fileID: 1421217883}
   m_Layer: 0
   m_Name: Fire Trap
   m_TagString: Untagged
@@ -1479,6 +1481,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1421217882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421217880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5875ff03fb2971f46bc5d21f5944df9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &1421217883
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421217880}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1470424049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,6 +1876,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1698291850096718959, guid: ca4978f20efd1cf4fa49033fee19df5f, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698291850096718959, guid: ca4978f20efd1cf4fa49033fee19df5f, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
