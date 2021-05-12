@@ -10,11 +10,13 @@ public class MainCharacter : MonoBehaviour
     private Rigidbody2D rb;
     private RaycastHit2D raycast;
     private SpriteRenderer sprite;
+    private CharacterStats stats;
     
 
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+        stats = GetComponent<CharacterStats>();
     }
 
     void Update()
@@ -74,9 +76,9 @@ public class MainCharacter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider != null)
+        if(collider.tag == "Fire")
         {
-            //Debug.Log("Hit Something");
+            stats.PeriodicDamageTaken(2f, 4);
         }
     }
 }
