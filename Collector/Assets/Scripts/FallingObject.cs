@@ -18,6 +18,13 @@ public class FallingObject : MonoBehaviour
         }
         protected set { }
     }
+    public float Score
+    {
+        get
+        {
+            return _data.Score;
+        }
+    }
     public static Action<GameObject> OnEnemyOverfly;
 
     private void Update()

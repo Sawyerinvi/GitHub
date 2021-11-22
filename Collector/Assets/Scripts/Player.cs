@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,6 +7,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float _health;
     [Range(0.01f, 5f)]
     [SerializeField] private float _speed;
+    
+    public Action<float, FallingObject> OnPlayerHit;
+
+    public float  PlayerHealth { get
+        {
+            return _health;
+        }
+    }
 
     private void Start()
     {
@@ -29,16 +36,28 @@ public class Player : MonoBehaviour
     {
         
         var obj = collision.gameObject;
-        FallingObject.OnEnemyOverfly(obj);
+
+        
+
         if (FallerSpawner._fallingObject.ContainsKey(obj))
         {
+            
+
             _health -= FallerSpawner._fallingObject[obj].Attack;
+
+            if(OnPlayerHit != null)
+            {
+                OnPlayerHit(_health, FallerSpawner._fallingObject[obj]);
+            }
+
             if(_health <= 0)
             {
                 Destroy(gameObject);
                 Debug.Log("Game Over");
             }
-            
+
+            FallingObject.OnEnemyOverfly(obj);
+
         }
     }
 }
